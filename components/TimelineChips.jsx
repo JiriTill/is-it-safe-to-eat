@@ -1,4 +1,4 @@
-
+import React from "react";
 import { Badge } from "./Badge";
 
 export function TimelineChips({ pantry, fridge, freezer }) {
