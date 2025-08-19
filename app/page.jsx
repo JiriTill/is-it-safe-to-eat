@@ -30,7 +30,9 @@ export default function Home() {
         </p>
       </section>
 
-      <QuickWizard />
+      <div id="quick">
+        <QuickWizard />
+      </div>
 
       <section className="space-y-4">
         <h2 className="text-xl font-semibold">Popular foods</h2>
