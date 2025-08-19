@@ -1,4 +1,3 @@
-
 import { findFoodBySlug } from "@/lib/data";
 import { notFound } from "next/navigation";
 import { TimelineChips } from "@/components/TimelineChips";
@@ -6,20 +5,56 @@ import { AnswerCard } from "@/components/AnswerCard";
 import TimerStart from "@/components/TimerStart";
 import { FAQ } from "@/components/FAQ";
 
-function computeVerdict(params, slug) {
-  const item = findFoodBySlug(slug);
-  const env = (params.env ?? "fridge");
-  const hours = params.h ? Number(params.h) : (params.d ? Number(params.d) * 24 : undefined);
-  const storage = item.storage.find(s => s.env === env);
+// --- Helpers ---
+function asStorageList(item) {
+  return Array.isArray(item?.storage) ? item.storage : [];
+}
+function fmtDuration(d) {
+  if (!d) return undefined;
+  if (typeof d.maxHours === "number") return `${d.maxHours} h`;
+  if (typeof d.maxDays === "number") return `${d.maxDays} days`;
+  if (typeof d.maxMonths === "number") return `${d.maxMonths} months`;
+  return undefined;
+}
+
+// --- Verdict calculator with full guards ---
+function computeVerdict(item, params) {
+  const env = (params?.env ?? "fridge");
+  const storageList = asStorageList(item);
+
+  // Safe number parsing
+  const hours =
+    params?.h != null && !Number.isNaN(Number(params.h))
+      ? Number(params.h)
+      : params?.d != null && !Number.isNaN(Number(params.d))
+      ? Number(params.d) * 24
+      : undefined;
+
+  // If item missing or storage schema unexpected, return a safe fallback
+  if (!item || storageList.length === 0) {
+    return {
+      tone: "caution",
+      title: "We don’t have data for this item",
+      bullets: [
+        "Try a similar food name or use the Quick check suggestions.",
+        "When in doubt, follow the 2-hour rule at room temperature.",
+      ],
+    };
+  }
+
+  const storage = storageList.find((s) => s.env === env);
   let tone = "safe";
   const bullets = [];
-  let title = `Guidance for ${item.name}`;
+  let title = `Guidance for ${item.name || "this food"}`;
 
+  // Room temperature 2-hour rule applies generically
   if (env === "pantry") {
     if (hours && hours > 2) {
       tone = "danger";
       title = "Discard";
-      bullets.push("Perishables over 2 hours at room temperature are not safe (1 hour if > 90°F / 32°C).");
+      bullets.push(
+        "Perishables over 2 hours at room temperature are not safe (1 hour if > 90°F / 32°C)."
+      );
       bullets.push("Next time, refrigerate within 2 hours.");
       return { tone, title, bullets };
     } else {
@@ -30,8 +65,24 @@ function computeVerdict(params, slug) {
     }
   }
 
+  // If we don't have a storage entry for the selected environment
+  if (!storage) {
+    tone = "caution";
+    title = "No data for this storage";
+    bullets.push("We don’t have a timeline for this environment.");
+    bullets.push("Use the fridge guidance when possible.");
+    return { tone, title, bullets };
+  }
+
+  // Normal fridge/freezer timelines
   if (storage?.duration?.maxHours || storage?.duration?.maxDays) {
-    const maxHours = (storage.duration.maxHours ?? (storage.duration.maxDays ? storage.duration.maxDays * 24 : undefined)) ?? Infinity;
+    const maxHours =
+      storage.duration.maxHours ??
+      (typeof storage.duration.maxDays === "number"
+        ? storage.duration.maxDays * 24
+        : undefined) ??
+      Infinity;
+
     if (hours !== undefined) {
       if (hours > maxHours) {
         tone = "danger";
@@ -40,7 +91,7 @@ function computeVerdict(params, slug) {
       } else if (hours > maxHours * 0.9) {
         tone = "caution";
         title = "Borderline — eat or discard now";
-        bullets.push(`You're near the end of the safe window. Reheat thoroughly and eat now.`);
+        bullets.push("You're near the end of the safe window. Reheat thoroughly and eat now.");
       } else {
         tone = "safe";
         title = "Likely safe";
@@ -54,7 +105,7 @@ function computeVerdict(params, slug) {
   } else if (storage?.notRecommended) {
     tone = "danger";
     title = "Not recommended";
-    bullets.push(`This food is not recommended in the selected environment.`);
+    bullets.push("This food is not recommended in the selected environment.");
   }
 
   if (env === "fridge") bullets.push("Keep your fridge at 40°F / 4°C or below.");
@@ -67,19 +118,12 @@ export default function FoodPage({ params, searchParams }) {
   const item = findFoodBySlug(params.slug);
   if (!item) return notFound();
 
-  const verdict = computeVerdict(searchParams || {}, params.slug);
+  const verdict = computeVerdict(item, searchParams || {});
 
-  const fridge = item.storage.find(s => s.env === "fridge");
-  const freezer = item.storage.find(s => s.env === "freezer");
-  const pantry = item.storage.find(s => s.env === "pantry");
-
-  function fmt(s) {
-    if (!s) return undefined;
-    if (s.maxHours) return `${s.maxHours} h`;
-    if (s.maxDays) return `${s.maxDays} days`;
-    if (s.maxMonths) return `${s.maxMonths} months`;
-    return undefined;
-    }
+  const storageList = asStorageList(item);
+  const fridge = storageList.find((s) => s.env === "fridge");
+  const freezer = storageList.find((s) => s.env === "freezer");
+  const pantry = storageList.find((s) => s.env === "pantry");
 
   return (
     <div className="space-y-6">
@@ -89,34 +133,45 @@ export default function FoodPage({ params, searchParams }) {
       <div className="card">
         <h3 className="text-lg font-semibold mb-2">Storage timelines</h3>
         <TimelineChips
-          pantry={pantry?.notRecommended ? undefined : fmt(pantry?.duration)}
-          fridge={fmt(fridge?.duration)}
-          freezer={fmt(freezer?.duration)}
+          pantry={pantry?.notRecommended ? undefined : fmtDuration(pantry?.duration)}
+          fridge={fmtDuration(fridge?.duration)}
+          freezer={fmtDuration(freezer?.duration)}
         />
       </div>
 
       {item.reheatTargetF && (
         <div className="card">
           <h3 className="text-lg font-semibold mb-2">Reheat / Serve temperatures</h3>
-          <p>Reheat leftovers to <strong>{item.reheatTargetF}°F / {Math.round((item.reheatTargetF-32)*5/9)}°C</strong>.</p>
+          <p>
+            Reheat leftovers to{" "}
+            <strong>
+              {item.reheatTargetF}°F / {Math.round(((item.reheatTargetF - 32) * 5) / 9)}°C
+            </strong>
+            .
+          </p>
         </div>
       )}
 
-      {item.hazards && item.hazards.length > 0 && (
+      {Array.isArray(item.hazards) && item.hazards.length > 0 && (
         <div className="card">
           <h3 className="text-lg font-semibold mb-2">Special hazards</h3>
           <ul className="list-disc ml-6 space-y-1">
-            {item.hazards.map((h, i) => <li key={i}><strong>{h.name}:</strong> {h.summary}</li>)}
+            {item.hazards.map((h, i) => (
+              <li key={i}>
+                <strong>{h.name}:</strong> {h.summary}
+              </li>
+            ))}
           </ul>
         </div>
       )}
 
       <TimerStart name={item.name} defaultDays={fridge?.duration?.maxDays} />
 
-      {item.faq?.length > 0 && <FAQ items={item.faq} />}
+      {Array.isArray(item.faq) && item.faq.length > 0 && <FAQ items={item.faq} />}
 
       <div className="text-sm text-slate-400">
-        Sources on this site are summarized from USDA, FoodSafety.gov, and FDA recall notices. This page uses standardized timelines; always use your senses and follow label directions.
+        Sources on this site are summarized from USDA, FoodSafety.gov, and FDA recall notices. This
+        page uses standardized timelines; always use your senses and follow label directions.
       </div>
     </div>
   );
