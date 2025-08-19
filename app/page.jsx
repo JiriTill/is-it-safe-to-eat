@@ -1,3 +1,4 @@
+import React from "react";
 import SearchBar from "@/components/SearchBar";
 import Link from "next/link";
 import { FOOD_DB } from "@/lib/data";
@@ -29,7 +30,6 @@ export default function Home() {
         </p>
       </section>
 
-      {/* Wizard */}
       <QuickWizard />
 
       <section className="space-y-4">
@@ -46,3 +46,4 @@ export default function Home() {
     </div>
   );
 }
+
