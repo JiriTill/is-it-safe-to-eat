@@ -1,3 +1,4 @@
+import React from "react";
 
 export function Badge({ tone = "safe", children }) {
   const toneClass = {
