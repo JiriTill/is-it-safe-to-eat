@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { findFoodBySlug } from "@/lib/data";
 import { notFound } from "next/navigation";
 import { TimelineChips } from "@/components/TimelineChips";
@@ -160,7 +161,14 @@ export default function FoodPage({ params, searchParams }) {
         </div>
       )}
 
-      {Array.isArray(item.faq) && item.faq.length > 0 && <FAQ items={item.faq} />}
+      {/* CTA: New check / Home */}
+      <div className="pt-2">
+        <hr className="border-slate-700 mb-4" />
+        <div className="flex flex-wrap gap-3">
+          <Link href="/" className="btn">New check</Link>
+          <Link href="/#quick" className="btn" title="Jump to Quick check on the homepage">Quick check</Link>
+        </div>
+      </div>
 
       <div className="text-sm text-slate-400">
         Sources on this site are summarized from USDA, FoodSafety.gov, and FDA recall notices. This
