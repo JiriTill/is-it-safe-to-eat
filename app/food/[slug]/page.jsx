@@ -1,3 +1,4 @@
+import React from "react";
 import { findFoodBySlug } from "@/lib/data";
 import { notFound } from "next/navigation";
 import { TimelineChips } from "@/components/TimelineChips";
@@ -22,7 +23,6 @@ function computeVerdict(item, params) {
   const env = (params?.env ?? "fridge");
   const storageList = asStorageList(item);
 
-  // Safe number parsing
   const hours =
     params?.h != null && !Number.isNaN(Number(params.h))
       ? Number(params.h)
@@ -30,7 +30,6 @@ function computeVerdict(item, params) {
       ? Number(params.d) * 24
       : undefined;
 
-  // If item missing or storage schema unexpected, return a safe fallback
   if (!item || storageList.length === 0) {
     return {
       tone: "caution",
@@ -47,7 +46,6 @@ function computeVerdict(item, params) {
   const bullets = [];
   let title = `Guidance for ${item.name || "this food"}`;
 
-  // Room temperature 2-hour rule applies generically
   if (env === "pantry") {
     if (hours && hours > 2) {
       tone = "danger";
@@ -65,7 +63,6 @@ function computeVerdict(item, params) {
     }
   }
 
-  // If we don't have a storage entry for the selected environment
   if (!storage) {
     tone = "caution";
     title = "No data for this storage";
@@ -74,7 +71,6 @@ function computeVerdict(item, params) {
     return { tone, title, bullets };
   }
 
-  // Normal fridge/freezer timelines
   if (storage?.duration?.maxHours || storage?.duration?.maxDays) {
     const maxHours =
       storage.duration.maxHours ??
