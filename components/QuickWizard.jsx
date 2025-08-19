@@ -4,6 +4,13 @@ import React, { useState, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { FOOD_DB, findFoodByQuery, suggestFoods } from "@/lib/data";
 
+function inferPreferForm(text) {
+  const q = (text || "").toLowerCase();
+  if (/(raw|uncooked)\b/.test(q)) return "raw";
+  if (/(leftover|leftovers|cooked|fried|grilled|baked|roasted|boiled|steamed)\b/.test(q)) return "cooked";
+  return undefined;
+}
+
 export default function QuickWizard() {
   const router = useRouter();
   const [food, setFood] = useState("");
@@ -24,13 +31,14 @@ export default function QuickWizard() {
 
   async function onCheck() {
     if (!food.trim()) {
-      alert("Type a food (e.g., 'cooked chicken' or 'cut watermelon').");
+      alert("Type a food (e.g., 'fried chicken' or 'cut watermelon').");
       return;
     }
     setBusy(true);
     setSuggest([]);
     try {
-      const match = await findFoodByQuery(food);
+      const preferForm = inferPreferForm(food);
+      const match = await findFoodByQuery(food, preferForm);
       if (!match) {
         const s = await suggestFoods(food, 5);
         setSuggest(s);
@@ -71,15 +79,10 @@ export default function QuickWizard() {
           className="input"
           placeholder="e.g., fried chicken, cut watermelon, cooked rice"
           value={food}
-          onChange={(e) => {
-            setFood(e.target.value);
-            setSuggest([]);
-          }}
+          onChange={(e) => { setFood(e.target.value); setSuggest([]); }}
         />
         <datalist id="foods">
-          {datalistOptions.map((o, i) => (
-            <option key={i} value={o} />
-          ))}
+          {datalistOptions.map((o, i) => <option key={i} value={o} />)}
         </datalist>
       </div>
 
@@ -89,15 +92,10 @@ export default function QuickWizard() {
           {[
             { val: "fridge", label: "Fridge" },
             { val: "pantry", label: "Room temp (left out)" },
-            { val: "freezer", label: "Freezer" },
-          ].map((b) => (
-            <button
-              key={b.val}
-              type="button"
-              onClick={() => setEnv(b.val)}
-              className={`btn ${env === b.val ? "" : "opacity-70"}`}
-              aria-pressed={env === b.val}
-            >
+            { val: "freezer", label: "Freezer" }
+          ].map(b => (
+            <button key={b.val} type="button" onClick={() => setEnv(b.val)}
+              className={`btn ${env === b.val ? "" : "opacity-70"}`} aria-pressed={env === b.val}>
               {b.label}
             </button>
           ))}
@@ -107,27 +105,13 @@ export default function QuickWizard() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <div>
           <label className="block text-sm text-slate-400 mb-1">Days (supports 0.5)</label>
-          <input
-            type="number"
-            step="0.5"
-            min="0"
-            className="input"
-            placeholder="e.g., 2 or 0.5"
-            value={days}
-            onChange={(e) => setDays(e.target.value)}
-          />
+          <input type="number" step="0.5" min="0" className="input" placeholder="e.g., 2 or 0.5"
+            value={days} onChange={e => setDays(e.target.value)} />
         </div>
         <div>
           <label className="block text-sm text-slate-400 mb-1">or Hours</label>
-          <input
-            type="number"
-            step="1"
-            min="0"
-            className="input"
-            placeholder="e.g., 12"
-            value={hours}
-            onChange={(e) => setHours(e.target.value)}
-          />
+          <input type="number" step="1" min="0" className="input" placeholder="e.g., 12"
+            value={hours} onChange={e => setHours(e.target.value)} />
         </div>
       </div>
 
@@ -143,13 +127,8 @@ export default function QuickWizard() {
           <div className="mb-2 text-slate-300">Did you mean:</div>
           <div className="flex flex-wrap gap-2">
             {suggest.map((s) => (
-              <button
-                key={s.id}
-                type="button"
-                onClick={() => pickSuggestion(s.id)}
-                className="btn"
-                title={s.name}
-              >
+              <button key={s.id} type="button" onClick={() => pickSuggestion(s.id)}
+                className="btn" title={s.name}>
                 {s.name}
               </button>
             ))}
@@ -159,4 +138,3 @@ export default function QuickWizard() {
     </section>
   );
 }
-
