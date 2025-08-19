@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "best-before-vs-use-by",
+    "title": "“Best by” vs “Use by”: What They Really Mean",
+    "date": "2025-01-15",
+    "tags": ["labels", "waste"],
+    "excerpt": "Date labels are confusing. Here’s how to read them to reduce waste without risking safety.",
+    "contentHtml": "<p>Most date labels are about <strong>quality</strong>, not safety. “Best by” and “Best if used by” signal peak quality from the manufacturer. “Use by” is the last date for quality — except on infant formula where it relates to <em>nutritional adequacy</em>. For safety, focus on <strong>time-in-fridge</strong> guidance and <strong>temperature control</strong> rather than printed dates.</p><ul><li>Keep the fridge ≤ 40°F / 4°C.</li><li>Follow conservative storage timelines on this site.</li><li>When in doubt, throw it out.</li></ul>"
+  },
+  {
+    "slug": "leftover-rice-safety",
+    "title": "Is Reheating Rice Safe? Do It Right.",
+    "date": "2025-01-08",
+    "tags": ["rice", "leftovers"],
+    "excerpt": "Rice can harbor Bacillus cereus if handled poorly. Cool fast, store cold, and reheat hot.",
+    "contentHtml": "<p>Cooked rice should be <strong>cooled quickly</strong> in shallow containers, refrigerated promptly, and eaten within <strong>3–4 days</strong>. Reheat to steaming hot throughout. Avoid leaving rice at room temperature for long periods.</p>"
+  },
+  {
+    "slug": "do-i-need-supplements",
+    "title": "Do I Need Supplements? Start with Food, Then Personalize",
+    "date": "2025-01-05",
+    "tags": ["supplements", "nutrition"],
+    "excerpt": "Most people can meet needs with food, but targeted supplements can help. See our sister project.",
+    "contentHtml": "<p>Supplements can fill specific gaps but aren’t a shortcut for a balanced diet. If you’re curious, explore personalized guidance at <a href=\"https://suppplan.example\" target=\"_blank\" rel=\"noreferrer\">SuppPlan</a>.</p>"
+  }
+]
