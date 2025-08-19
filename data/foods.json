@@ -665,10 +665,7 @@
   {
     "id": "cut-melon",
     "name": "Melon, cut (cantaloupe/watermelon)",
-    "synonyms": [
-      "cut cantaloupe",
-      "cut watermelon",
-      "melon cubes"
+    "synonyms": ["cut cantaloupe", "cut watermelon", "melon cubes", "watermelon", "cantaloupe"]
     ],
     "category": "produce",
     "forms": [
