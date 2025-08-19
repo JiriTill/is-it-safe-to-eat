@@ -73,3 +73,77 @@ export default function QuickWizard() {
       {/* ENV PICKER */}
       <div>
         <label className="block text-sm text-slate-400 mb-1">Where is it?</label>
+        <div className="flex flex-wrap gap-2">
+          {[
+            {val:"fridge", label:"Fridge"},
+            {val:"pantry", label:"Room temp (left out)"},
+            {val:"freezer", label:"Freezer"}
+          ].map(b => (
+            <button
+              key={b.val}
+              type="button"
+              onClick={() => setEnv(b.val)}
+              className={`btn ${env === b.val ? "" : "opacity-70"}`}
+              aria-pressed={env === b.val}
+            >
+              {b.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* DURATION */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div>
+          <label className="block text-sm text-slate-400 mb-1">Days (supports 0.5)</label>
+          <input
+            type="number"
+            step="0.5"
+            min="0"
+            className="input"
+            placeholder="e.g., 2 or 0.5"
+            value={days}
+            onChange={e => setDays(e.target.value)}
+          />
+        </div>
+        <div>
+          <label className="block text-sm text-slate-400 mb-1">or Hours</label>
+          <input
+            type="number"
+            step="1"
+            min="0"
+            className="input"
+            placeholder="e.g., 12"
+            value={hours}
+            onChange={e => setHours(e.target.value)}
+          />
+        </div>
+      </div>
+
+      <div className="flex items-center gap-3">
+        <button className="btn" type="button" onClick={onCheck}>Check safety</button>
+        <span className="text-xs text-slate-400">Tip: If you’re unsure, enter 0.5 day = 12 hours.</span>
+      </div>
+
+      {/* Suggestions when no match */}
+      {suggest.length > 0 && (
+        <div className="text-sm">
+          <div className="mb-2 text-slate-300">Did you mean:</div>
+          <div className="flex flex-wrap gap-2">
+            {suggest.map(s => (
+              <button
+                key={s.id}
+                type="button"
+                onClick={() => pickSuggestion(s.id)}
+                className="btn"
+                title={s.name}
+              >
+                {s.name}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+    </section>
+  );
+}
