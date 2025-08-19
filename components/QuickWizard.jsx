@@ -1,13 +1,13 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import React, { useState, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { FOOD_DB, findFoodByQuery, suggestFoods } from "@/lib/data";
 
 export default function QuickWizard() {
   const router = useRouter();
   const [food, setFood] = useState("");
-  const [env, setEnv] = useState("fridge"); // fridge | pantry | freezer
+  const [env, setEnv] = useState("fridge");
   const [days, setDays] = useState("");
   const [hours, setHours] = useState("");
   const [suggest, setSuggest] = useState([]);
@@ -41,7 +41,7 @@ export default function QuickWizard() {
       const d = Number(days);
       const h = Number(hours);
       if (!Number.isNaN(h) && h > 0) params.set("h", String(h));
-      else if (!Number.isNaN(d) && d > 0) params.set("d", String(d)); // supports 0.5 days
+      else if (!Number.isNaN(d) && d > 0) params.set("d", String(d));
       const qs = params.toString();
       router.push(qs ? `/food/${match.id}?${qs}` : `/food/${match.id}`);
     } finally {
@@ -159,3 +159,4 @@ export default function QuickWizard() {
     </section>
   );
 }
+
