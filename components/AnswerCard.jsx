@@ -1,5 +1,5 @@
-
 import { Badge } from "./Badge";
+import React from "react";
 
 export function AnswerCard({ verdict }) {
   const border = {
