@@ -1,7 +1,7 @@
 "use client";
 
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 import { parseQuery } from "@/lib/parseInput";
 import { findFoodByQuery } from "@/lib/data";
 
@@ -22,7 +22,6 @@ export default function SearchBar() {
       const qs = params.toString();
       router.push(qs ? `/food/${match.id}?${qs}` : `/food/${match.id}`);
     } else {
-      // No match: send to homepage wizard rather than a 404-ish slug
       alert("We couldn’t find that item. Try the Quick check below.");
     }
   }
