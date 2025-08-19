@@ -12,7 +12,14 @@ export default function SearchBar() {
   async function onSubmit(e) {
     e.preventDefault();
     const parsed = parseQuery(q);
-    const match = await findFoodByQuery(parsed.food || q);
+
+    // cooked/leftovers bias cooked; raw biases raw
+    const preferForm =
+      parsed.form === "raw" ? "raw" :
+      (parsed.form === "cooked" || parsed.form === "leftovers") ? "cooked" :
+      undefined;
+
+    const match = await findFoodByQuery(parsed.food || q, preferForm);
     if (match) {
       const params = new URLSearchParams();
       if (parsed.env) params.set("env", parsed.env);
@@ -30,7 +37,7 @@ export default function SearchBar() {
     <form onSubmit={onSubmit} className="flex gap-2">
       <input
         className="input text-lg"
-        placeholder='e.g., "fried chicken in fridge for 3 days"'
+        placeholder='e.g., "fried chicken in fridge for 2 days"'
         value={q}
         onChange={(e) => setQ(e.target.value)}
         aria-label="Search food"
