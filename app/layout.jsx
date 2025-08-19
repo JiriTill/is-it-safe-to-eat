@@ -1,4 +1,4 @@
-
+import Footer from "@/components/Footer";
 import "./globals.css";
 
 export const metadata = {
@@ -22,11 +22,7 @@ export default function RootLayout({ children }) {
         <main className="container py-8">
           {children}
         </main>
-        <footer className="border-t border-slate-800">
-          <div className="container py-8 text-sm text-slate-400">
-            Not medical advice. When in doubt, throw it out. Sources: USDA, FoodSafety.gov, FDA.
-          </div>
-        </footer>
+        <Footer />
       </body>
     </html>
   );
