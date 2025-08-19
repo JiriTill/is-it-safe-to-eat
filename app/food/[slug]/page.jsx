@@ -3,7 +3,6 @@ import { findFoodBySlug } from "@/lib/data";
 import { notFound } from "next/navigation";
 import { TimelineChips } from "@/components/TimelineChips";
 import { AnswerCard } from "@/components/AnswerCard";
-import TimerStart from "@/components/TimerStart";
 import { FAQ } from "@/components/FAQ";
 
 // --- Helpers ---
@@ -160,8 +159,6 @@ export default function FoodPage({ params, searchParams }) {
           </ul>
         </div>
       )}
-
-      <TimerStart name={item.name} defaultDays={fridge?.duration?.maxDays} />
 
       {Array.isArray(item.faq) && item.faq.length > 0 && <FAQ items={item.faq} />}
 
