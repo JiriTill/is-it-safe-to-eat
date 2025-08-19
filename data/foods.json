@@ -1,1047 +1,182 @@
 [
   {
     "id": "cooked-chicken",
-    "name": "Chicken, cooked",
-    "synonyms": [
-      "fried chicken",
-      "roast chicken",
-      "rotisserie chicken",
-      "grilled chicken",
-      "baked chicken",
-      "leftover chicken",
-      "kfc chicken"
-    ],
-    "category": "poultry",
-    "forms": [
-      "cooked",
-      "leftovers"
-    ],
-    "storage": [
-      {
-        "env": "pantry",
-        "form": [
-          "cooked",
-          "leftovers"
-        ],
-        "notRecommended": true,
-        "duration": {
-          "maxHours": 2
-        }
-      },
-      {
-        "env": "fridge",
-        "form": [
-          "cooked",
-          "leftovers"
-        ],
-        "duration": {
-          "maxDays": 4
-        }
-      },
-      {
-        "env": "freezer",
-        "form": [
-          "cooked",
-          "leftovers"
-        ],
-        "duration": {
-          "maxMonths": 6
-        },
-        "note": "Best quality if used sooner."
-      }
-    ],
-    "reheatTargetF": 165,
-    "faq": [
-      {
-        "q": "Left out overnight\u2014safe?",
-        "a": "No. Discard. Perishables left out over 2 hours (1 hour if >90\u00b0F / 32\u00b0C) are unsafe."
-      },
-      {
-        "q": "What fridge temperature is safe?",
-        "a": "40\u00b0F / 4\u00b0C or below."
-      }
-    ]
+    "name": "Cooked Chicken",
+    "storage": {
+      "fridge": { "safe_days": 3, "note": "Eat within 3–4 days if stored properly in the fridge." },
+      "freezer": { "safe_days": 90, "note": "Freeze up to 3 months." },
+      "room": { "safe_hours": 2, "note": "Unsafe if left out longer than 2 hours." }
+    }
   },
   {
-    "id": "raw-chicken",
-    "name": "Chicken, raw",
-    "synonyms": [
-      "raw chicken breast",
-      "raw chicken thighs",
-      "raw poultry"
-    ],
-    "category": "poultry",
-    "forms": [
-      "raw"
-    ],
-    "storage": [
-      {
-        "env": "pantry",
-        "form": [
-          "raw"
-        ],
-        "notRecommended": true,
-        "duration": {
-          "maxHours": 2
-        }
-      },
-      {
-        "env": "fridge",
-        "form": [
-          "raw"
-        ],
-        "duration": {
-          "maxDays": 2
-        }
-      },
-      {
-        "env": "freezer",
-        "form": [
-          "raw"
-        ],
-        "duration": {
-          "maxMonths": 12
-        },
-        "note": "Quality best within 9 months for parts."
-      }
-    ],
-    "internalCookTempsF": {
-      "whole": 165
-    },
-    "faq": [
-      {
-        "q": "Marinated raw chicken \u2014 same timeline?",
-        "a": "Yes. Marinating does not extend safety timeframes."
-      }
-    ]
+    "id": "fried-chicken",
+    "name": "Fried Chicken",
+    "storage": {
+      "fridge": { "safe_days": 3, "note": "Best eaten within 1–2 days for crispiness, safe up to 3–4 days." },
+      "freezer": { "safe_days": 90, "note": "Can freeze up to 3 months, though texture suffers." },
+      "room": { "safe_hours": 2, "note": "Unsafe after 2 hours at room temperature." }
+    }
   },
   {
-    "id": "ground-beef-raw",
-    "name": "Beef, ground (raw)",
-    "synonyms": [
-      "ground beef",
-      "minced beef",
-      "raw mince",
-      "hamburger meat"
-    ],
-    "category": "meat",
-    "forms": [
-      "raw"
-    ],
-    "storage": [
-      {
-        "env": "pantry",
-        "form": [
-          "raw"
-        ],
-        "notRecommended": true,
-        "duration": {
-          "maxHours": 2
-        }
-      },
-      {
-        "env": "fridge",
-        "form": [
-          "raw"
-        ],
-        "duration": {
-          "maxDays": 2
-        }
-      },
-      {
-        "env": "freezer",
-        "form": [
-          "raw"
-        ],
-        "duration": {
-          "maxMonths": 4
-        }
-      }
-    ],
-    "internalCookTempsF": {
-      "ground": 160
-    },
-    "faq": [
-      {
-        "q": "Beef turned brown \u2014 safe?",
-        "a": "Color isn\u2019t a perfect indicator. Use time/temperature guidance and smell/surface check."
-      }
-    ]
+    "id": "pizza",
+    "name": "Pizza",
+    "storage": {
+      "fridge": { "safe_days": 4, "note": "Eat within 3–4 days." },
+      "freezer": { "safe_days": 60, "note": "Freeze up to 2 months." },
+      "room": { "safe_hours": 2, "note": "Unsafe after 2 hours." }
+    }
   },
   {
-    "id": "beef-cooked",
-    "name": "Beef, cooked (leftovers)",
-    "synonyms": [
-      "leftover beef",
-      "roast beef leftovers",
-      "beef stew",
-      "steak leftovers"
-    ],
-    "category": "meat",
-    "forms": [
-      "cooked",
-      "leftovers"
-    ],
-    "storage": [
-      {
-        "env": "pantry",
-        "form": [
-          "leftovers"
-        ],
-        "notRecommended": true,
-        "duration": {
-          "maxHours": 2
-        }
-      },
-      {
-        "env": "fridge",
-        "form": [
-          "leftovers"
-        ],
-        "duration": {
-          "maxDays": 4
-        }
-      },
-      {
-        "env": "freezer",
-        "form": [
-          "leftovers"
-        ],
-        "duration": {
-          "maxMonths": 3
-        }
-      }
-    ],
-    "reheatTargetF": 165,
-    "faq": [
-      {
-        "q": "Beef stew safe time?",
-        "a": "Soups and stews follow the same 3\u20134 day fridge guidance; freeze for longer storage."
-      }
-    ]
+    "id": "rice-cooked",
+    "name": "Cooked Rice",
+    "storage": {
+      "fridge": { "safe_days": 4, "note": "Safe 3–4 days if cooled quickly and refrigerated." },
+      "freezer": { "safe_days": 60, "note": "Freeze up to 2 months." },
+      "room": { "safe_hours": 2, "note": "Risk of bacteria after 2 hours." }
+    }
   },
   {
-    "id": "fish-raw",
-    "name": "Fish, raw (not sushi-grade)",
-    "synonyms": [
-      "raw fish fillet",
-      "uncooked fish",
-      "raw salmon",
-      "raw cod"
-    ],
-    "category": "seafood",
-    "forms": [
-      "raw"
-    ],
-    "storage": [
-      {
-        "env": "pantry",
-        "form": [
-          "raw"
-        ],
-        "notRecommended": true,
-        "duration": {
-          "maxHours": 2
-        }
-      },
-      {
-        "env": "fridge",
-        "form": [
-          "raw"
-        ],
-        "duration": {
-          "maxDays": 2
-        }
-      },
-      {
-        "env": "freezer",
-        "form": [
-          "raw"
-        ],
-        "duration": {
-          "maxMonths": 8
-        }
-      }
-    ],
-    "internalCookTempsF": {
-      "seafood": 145
-    },
-    "faq": [
-      {
-        "q": "Safe to refreeze raw fish?",
-        "a": "If thawed in the refrigerator and kept cold, it can be refrozen, but quality may suffer."
-      }
-    ]
+    "id": "boiled-egg",
+    "name": "Boiled Egg",
+    "storage": {
+      "fridge": { "safe_days": 7, "note": "Eat within 1 week if stored in shell." },
+      "freezer": { "safe_days": 0, "note": "Freezing not recommended." },
+      "room": { "safe_hours": 2, "note": "Unsafe after 2 hours." }
+    }
+  },
+  {
+    "id": "scrambled-egg",
+    "name": "Scrambled Eggs",
+    "storage": {
+      "fridge": { "safe_days": 3, "note": "Safe for 3–4 days." },
+      "freezer": { "safe_days": 0, "note": "Freezing not recommended." },
+      "room": { "safe_hours": 2, "note": "Unsafe after 2 hours." }
+    }
+  },
+  {
+    "id": "watermelon",
+    "name": "Watermelon (cut)",
+    "storage": {
+      "fridge": { "safe_days": 3, "note": "Eat within 3–4 days when cut." },
+      "freezer": { "safe_days": 365, "note": "Can freeze up to 12 months, but best in smoothies." },
+      "room": { "safe_hours": 2, "note": "Unsafe after 2 hours." }
+    }
+  },
+  {
+    "id": "apple",
+    "name": "Apple",
+    "storage": {
+      "fridge": { "safe_days": 30, "note": "Keeps up to 1 month in fridge." },
+      "freezer": { "safe_days": 365, "note": "Freeze up to 12 months." },
+      "room": { "safe_days": 7, "note": "Safe up to 1 week at room temperature." }
+    }
+  },
+  {
+    "id": "bread",
+    "name": "Bread",
+    "storage": {
+      "fridge": { "safe_days": 7, "note": "Lasts up to 1 week, may dry out." },
+      "freezer": { "safe_days": 90, "note": "Freeze up to 3 months." },
+      "room": { "safe_days": 3, "note": "Lasts 2–3 days at room temp." }
+    }
+  },
+  {
+    "id": "milk",
+    "name": "Milk",
+    "storage": {
+      "fridge": { "safe_days": 7, "note": "Usually safe up to 1 week past printed date." },
+      "freezer": { "safe_days": 90, "note": "Can freeze up to 3 months, texture changes." },
+      "room": { "safe_hours": 2, "note": "Unsafe after 2 hours." }
+    }
+  },
+  {
+    "id": "yogurt",
+    "name": "Yogurt",
+    "storage": {
+      "fridge": { "safe_days": 14, "note": "Safe for 1–2 weeks past sell-by date." },
+      "freezer": { "safe_days": 60, "note": "Can freeze up to 2 months." },
+      "room": { "safe_hours": 2, "note": "Unsafe after 2 hours." }
+    }
+  },
+  {
+    "id": "cheese-hard",
+    "name": "Hard Cheese (Cheddar, Parmesan)",
+    "storage": {
+      "fridge": { "safe_days": 30, "note": "Keeps 3–4 weeks." },
+      "freezer": { "safe_days": 180, "note": "Can freeze up to 6 months." },
+      "room": { "safe_days": 7, "note": "Safe for about 1 week if kept cool." }
+    }
+  },
+  {
+    "id": "cheese-soft",
+    "name": "Soft Cheese (Brie, Camembert)",
+    "storage": {
+      "fridge": { "safe_days": 14, "note": "Eat within 1–2 weeks." },
+      "freezer": { "safe_days": 0, "note": "Freezing not recommended." },
+      "room": { "safe_hours": 2, "note": "Unsafe after 2 hours." }
+    }
+  },
+  {
+    "id": "ham",
+    "name": "Ham (sliced)",
+    "storage": {
+      "fridge": { "safe_days": 5, "note": "Safe for 3–5 days." },
+      "freezer": { "safe_days": 60, "note": "Freeze up to 2 months." },
+      "room": { "safe_hours": 2, "note": "Unsafe after 2 hours." }
+    }
+  },
+  {
+    "id": "bacon",
+    "name": "Bacon (cooked)",
+    "storage": {
+      "fridge": { "safe_days": 5, "note": "Safe for 4–5 days." },
+      "freezer": { "safe_days": 30, "note": "Freeze up to 1 month." },
+      "room": { "safe_hours": 2, "note": "Unsafe after 2 hours." }
+    }
+  },
+  {
+    "id": "sausage",
+    "name": "Cooked Sausage",
+    "storage": {
+      "fridge": { "safe_days": 4, "note": "Safe for 3–4 days." },
+      "freezer": { "safe_days": 60, "note": "Freeze up to 2 months." },
+      "room": { "safe_hours": 2, "note": "Unsafe after 2 hours." }
+    }
   },
   {
     "id": "fish-cooked",
-    "name": "Fish, cooked",
-    "synonyms": [
-      "cooked fish",
-      "leftover salmon",
-      "baked cod leftovers",
-      "grilled fish"
-    ],
-    "category": "seafood",
-    "forms": [
-      "cooked",
-      "leftovers"
-    ],
-    "storage": [
-      {
-        "env": "pantry",
-        "form": [
-          "leftovers"
-        ],
-        "notRecommended": true,
-        "duration": {
-          "maxHours": 2
-        }
-      },
-      {
-        "env": "fridge",
-        "form": [
-          "leftovers"
-        ],
-        "duration": {
-          "maxDays": 4
-        }
-      },
-      {
-        "env": "freezer",
-        "form": [
-          "leftovers"
-        ],
-        "duration": {
-          "maxMonths": 3
-        }
-      }
-    ],
-    "reheatTargetF": 165,
-    "faq": [
-      {
-        "q": "Fish smells strong \u2014 discard?",
-        "a": "If odor is sour or ammonia-like, discard."
-      }
-    ]
+    "name": "Cooked Fish",
+    "storage": {
+      "fridge": { "safe_days": 3, "note": "Eat within 2–3 days." },
+      "freezer": { "safe_days": 90, "note": "Freeze up to 3 months." },
+      "room": { "safe_hours": 2, "note": "Unsafe after 2 hours." }
+    }
   },
   {
-    "id": "shrimp-raw",
-    "name": "Shrimp, raw",
-    "synonyms": [
-      "raw shrimp",
-      "uncooked prawns"
-    ],
-    "category": "seafood",
-    "forms": [
-      "raw"
-    ],
-    "storage": [
-      {
-        "env": "pantry",
-        "form": [
-          "raw"
-        ],
-        "notRecommended": true,
-        "duration": {
-          "maxHours": 2
-        }
-      },
-      {
-        "env": "fridge",
-        "form": [
-          "raw"
-        ],
-        "duration": {
-          "maxDays": 2
-        }
-      },
-      {
-        "env": "freezer",
-        "form": [
-          "raw"
-        ],
-        "duration": {
-          "maxMonths": 9
-        }
-      }
-    ],
-    "faq": [
-      {
-        "q": "Thawed raw shrimp \u2014 how long?",
-        "a": "Use within 1\u20132 days if kept in the refrigerator."
-      }
-    ]
+    "id": "fish-raw",
+    "name": "Raw Fish",
+    "storage": {
+      "fridge": { "safe_days": 2, "note": "Eat within 1–2 days." },
+      "freezer": { "safe_days": 90, "note": "Freeze up to 3 months." },
+      "room": { "safe_hours": 1, "note": "Unsafe after 1 hour." }
+    }
   },
   {
-    "id": "shrimp-cooked",
-    "name": "Shrimp, cooked",
-    "synonyms": [
-      "cooked shrimp",
-      "shrimp leftovers"
-    ],
-    "category": "seafood",
-    "forms": [
-      "cooked",
-      "leftovers"
-    ],
-    "storage": [
-      {
-        "env": "pantry",
-        "form": [
-          "leftovers"
-        ],
-        "notRecommended": true,
-        "duration": {
-          "maxHours": 2
-        }
-      },
-      {
-        "env": "fridge",
-        "form": [
-          "leftovers"
-        ],
-        "duration": {
-          "maxDays": 4
-        }
-      },
-      {
-        "env": "freezer",
-        "form": [
-          "leftovers"
-        ],
-        "duration": {
-          "maxMonths": 3
-        }
-      }
-    ],
-    "reheatTargetF": 165
-  },
-  {
-    "id": "eggs-hard-boiled",
-    "name": "Eggs, hard-boiled (peeled or unpeeled)",
-    "synonyms": [
-      "boiled eggs",
-      "hard boiled eggs",
-      "cooked eggs"
-    ],
-    "category": "eggs",
-    "forms": [
-      "cooked",
-      "leftovers"
-    ],
-    "storage": [
-      {
-        "env": "pantry",
-        "form": [
-          "cooked"
-        ],
-        "notRecommended": true,
-        "duration": {
-          "maxHours": 2
-        }
-      },
-      {
-        "env": "fridge",
-        "form": [
-          "cooked"
-        ],
-        "duration": {
-          "maxDays": 7
-        }
-      },
-      {
-        "env": "freezer",
-        "form": [
-          "cooked"
-        ],
-        "notRecommended": true
-      }
-    ],
-    "reheatTargetF": 165,
-    "faq": [
-      {
-        "q": "Grey ring around yolk \u2014 safe?",
-        "a": "Yes, that\u2019s usually from overcooking; it\u2019s safe to eat."
-      }
-    ]
-  },
-  {
-    "id": "milk-opened",
-    "name": "Milk, opened",
-    "synonyms": [
-      "opened milk",
-      "carton milk opened",
-      "whole milk opened",
-      "2% milk opened"
-    ],
-    "category": "dairy",
-    "forms": [
-      "opened"
-    ],
-    "storage": [
-      {
-        "env": "pantry",
-        "form": [
-          "opened"
-        ],
-        "notRecommended": true,
-        "duration": {
-          "maxHours": 2
-        }
-      },
-      {
-        "env": "fridge",
-        "form": [
-          "opened"
-        ],
-        "duration": {
-          "maxDays": 7
-        }
-      },
-      {
-        "env": "freezer",
-        "form": [
-          "opened"
-        ],
-        "duration": {
-          "maxMonths": 3
-        },
-        "note": "Texture may separate after thawing."
-      }
-    ],
-    "faq": [
-      {
-        "q": "Sour smell?",
-        "a": "Discard if sour or curdled; do not taste to check."
-      }
-    ]
-  },
-  {
-    "id": "yogurt-opened",
-    "name": "Yogurt, opened",
-    "synonyms": [
-      "opened yogurt",
-      "greek yogurt opened"
-    ],
-    "category": "dairy",
-    "forms": [
-      "opened"
-    ],
-    "storage": [
-      {
-        "env": "pantry",
-        "form": [
-          "opened"
-        ],
-        "notRecommended": true,
-        "duration": {
-          "maxHours": 2
-        }
-      },
-      {
-        "env": "fridge",
-        "form": [
-          "opened"
-        ],
-        "duration": {
-          "maxDays": 14
-        }
-      },
-      {
-        "env": "freezer",
-        "form": [
-          "opened"
-        ],
-        "duration": {
-          "maxMonths": 2
-        },
-        "note": "Texture changes when frozen."
-      }
-    ],
-    "faq": [
-      {
-        "q": "Water on top?",
-        "a": "Stir it back in if within time and smells normal; discard if moldy or sour beyond normal tang."
-      }
-    ]
-  },
-  {
-    "id": "cream-cheese-opened",
-    "name": "Cream cheese, opened",
-    "synonyms": [
-      "opened cream cheese",
-      "soft cheese opened"
-    ],
-    "category": "dairy",
-    "forms": [
-      "opened"
-    ],
-    "storage": [
-      {
-        "env": "pantry",
-        "form": [
-          "opened"
-        ],
-        "notRecommended": true,
-        "duration": {
-          "maxHours": 2
-        }
-      },
-      {
-        "env": "fridge",
-        "form": [
-          "opened"
-        ],
-        "duration": {
-          "maxDays": 14
-        }
-      },
-      {
-        "env": "freezer",
-        "form": [
-          "opened"
-        ],
-        "notRecommended": true
-      }
-    ],
-    "faq": [
-      {
-        "q": "Can I freeze cream cheese?",
-        "a": "Not recommended for texture; it becomes crumbly after thawing."
-      }
-    ]
-  },
-  {
-    "id": "cheddar-opened",
-    "name": "Cheddar (hard cheese), opened",
-    "synonyms": [
-      "cheddar opened",
-      "hard cheese opened",
-      "block cheese opened"
-    ],
-    "category": "dairy",
-    "forms": [
-      "opened"
-    ],
-    "storage": [
-      {
-        "env": "pantry",
-        "form": [
-          "opened"
-        ],
-        "notRecommended": true,
-        "duration": {
-          "maxHours": 2
-        }
-      },
-      {
-        "env": "fridge",
-        "form": [
-          "opened"
-        ],
-        "duration": {
-          "maxDays": 28
-        }
-      },
-      {
-        "env": "freezer",
-        "form": [
-          "opened"
-        ],
-        "duration": {
-          "maxMonths": 6
-        },
-        "note": "Best grated after freezing due to texture."
-      }
-    ],
-    "faq": [
-      {
-        "q": "Small mold on hard cheese?",
-        "a": "Cut off at least 1 inch around and below the mold; keep knife out of mold area. Discard if heavily moldy."
-      }
-    ]
-  },
-  {
-    "id": "cut-melon",
-    "name": "Melon, cut (cantaloupe/watermelon)",
-    "synonyms": ["cut cantaloupe", "cut watermelon", "melon cubes", "watermelon", "cantaloupe"]
-    ],
-    "category": "produce",
-    "forms": [
-      "opened"
-    ],
-    "storage": [
-      {
-        "env": "pantry",
-        "form": [
-          "opened"
-        ],
-        "notRecommended": true,
-        "duration": {
-          "maxHours": 2
-        }
-      },
-      {
-        "env": "fridge",
-        "form": [
-          "opened"
-        ],
-        "duration": {
-          "maxDays": 4
-        }
-      },
-      {
-        "env": "freezer",
-        "form": [
-          "opened"
-        ],
-        "duration": {
-          "maxMonths": 10
-        },
-        "note": "Best used in smoothies when thawed."
-      }
-    ],
-    "hazards": [
-      {
-        "name": "Bacterial contamination risk",
-        "summary": "Wash rind before cutting; refrigerate promptly. Discard if left out more than 2 hours."
-      }
-    ]
-  },
-  {
-    "id": "berries",
-    "name": "Berries (strawberries/blueberries)",
-    "synonyms": [
-      "strawberries",
-      "blueberries",
-      "raspberries"
-    ],
-    "category": "produce",
-    "forms": [
-      "opened"
-    ],
-    "storage": [
-      {
-        "env": "pantry",
-        "form": [
-          "opened"
-        ],
-        "notRecommended": true,
-        "duration": {
-          "maxHours": 2
-        }
-      },
-      {
-        "env": "fridge",
-        "form": [
-          "opened"
-        ],
-        "duration": {
-          "minDays": 3,
-          "maxDays": 7
-        }
-      },
-      {
-        "env": "freezer",
-        "form": [
-          "opened"
-        ],
-        "duration": {
-          "maxMonths": 12
-        }
-      }
-    ],
-    "faq": [
-      {
-        "q": "One berry is moldy \u2014 what now?",
-        "a": "Remove moldy berries and check the rest. If mold spread is visible, discard the container."
-      }
-    ]
-  },
-  {
-    "id": "cooked-rice",
-    "name": "Rice, cooked",
-    "synonyms": [
-      "leftover rice",
-      "white rice cooked",
-      "brown rice cooked",
-      "fried rice"
-    ],
-    "category": "grains",
-    "forms": [
-      "cooked",
-      "leftovers"
-    ],
-    "storage": [
-      {
-        "env": "pantry",
-        "form": [
-          "cooked",
-          "leftovers"
-        ],
-        "notRecommended": true,
-        "duration": {
-          "maxHours": 2
-        }
-      },
-      {
-        "env": "fridge",
-        "form": [
-          "cooked",
-          "leftovers"
-        ],
-        "duration": {
-          "maxDays": 4
-        }
-      },
-      {
-        "env": "freezer",
-        "form": [
-          "cooked",
-          "leftovers"
-        ],
-        "duration": {
-          "maxMonths": 6
-        }
-      }
-    ],
-    "reheatTargetF": 165,
-    "hazards": [
-      {
-        "name": "Bacillus cereus",
-        "summary": "Cool quickly in shallow containers, refrigerate promptly, and reheat thoroughly."
-      }
-    ]
+    "id": "potato-cooked",
+    "name": "Cooked Potatoes",
+    "storage": {
+      "fridge": { "safe_days": 4, "note": "Safe for 3–4 days." },
+      "freezer": { "safe_days": 60, "note": "Freeze up to 2 months." },
+      "room": { "safe_hours": 2, "note": "Unsafe after 2 hours." }
+    }
   },
   {
     "id": "pasta-cooked",
-    "name": "Pasta, cooked (plain)",
-    "synonyms": [
-      "cooked pasta",
-      "leftover pasta",
-      "spaghetti cooked"
-    ],
-    "category": "grains",
-    "forms": [
-      "cooked",
-      "leftovers"
-    ],
-    "storage": [
-      {
-        "env": "pantry",
-        "form": [
-          "leftovers"
-        ],
-        "notRecommended": true,
-        "duration": {
-          "maxHours": 2
-        }
-      },
-      {
-        "env": "fridge",
-        "form": [
-          "leftovers"
-        ],
-        "duration": {
-          "maxDays": 4
-        }
-      },
-      {
-        "env": "freezer",
-        "form": [
-          "leftovers"
-        ],
-        "duration": {
-          "maxMonths": 2
-        }
-      }
-    ],
-    "reheatTargetF": 165
-  },
-  {
-    "id": "pizza-cooked",
-    "name": "Pizza, cooked (leftovers)",
-    "synonyms": [
-      "pizza",
-      "leftover pizza",
-      "takeout pizza"
-    ],
-    "category": "prepared",
-    "forms": [
-      "leftovers",
-      "cooked"
-    ],
-    "storage": [
-      {
-        "env": "pantry",
-        "form": [
-          "leftovers"
-        ],
-        "notRecommended": true,
-        "duration": {
-          "maxHours": 2
-        }
-      },
-      {
-        "env": "fridge",
-        "form": [
-          "leftovers"
-        ],
-        "duration": {
-          "maxDays": 4
-        }
-      },
-      {
-        "env": "freezer",
-        "form": [
-          "leftovers"
-        ],
-        "duration": {
-          "maxMonths": 2
-        }
-      }
-    ],
-    "reheatTargetF": 165
-  },
-  {
-    "id": "sushi-takeout",
-    "name": "Sushi (takeout)",
-    "synonyms": [
-      "sushi leftovers",
-      "nigiri leftovers",
-      "maki leftovers"
-    ],
-    "category": "prepared",
-    "forms": [
-      "leftovers"
-    ],
-    "storage": [
-      {
-        "env": "pantry",
-        "form": [
-          "leftovers"
-        ],
-        "notRecommended": true,
-        "duration": {
-          "maxHours": 2
-        }
-      },
-      {
-        "env": "fridge",
-        "form": [
-          "leftovers"
-        ],
-        "duration": {
-          "maxDays": 1
-        }
-      },
-      {
-        "env": "freezer",
-        "form": [
-          "leftovers"
-        ],
-        "notRecommended": true
-      }
-    ],
-    "faq": [
-      {
-        "q": "Next-day sushi okay?",
-        "a": "Generally best within 24 hours if kept refrigerated; check smell/texture."
-      }
-    ]
-  },
-  {
-    "id": "deli-meat-opened",
-    "name": "Deli meat, opened",
-    "synonyms": [
-      "sliced ham opened",
-      "turkey deli meat opened",
-      "cold cuts opened"
-    ],
-    "category": "deli",
-    "forms": [
-      "opened"
-    ],
-    "storage": [
-      {
-        "env": "pantry",
-        "form": [
-          "opened"
-        ],
-        "notRecommended": true,
-        "duration": {
-          "maxHours": 2
-        }
-      },
-      {
-        "env": "fridge",
-        "form": [
-          "opened"
-        ],
-        "duration": {
-          "maxDays": 5
-        }
-      },
-      {
-        "env": "freezer",
-        "form": [
-          "opened"
-        ],
-        "duration": {
-          "maxMonths": 2
-        }
-      }
-    ],
-    "faq": [
-      {
-        "q": "Slimy feel \u2014 safe?",
-        "a": "Discard if slimy or sour-smelling."
-      }
-    ]
-  },
-  {
-    "id": "egg-salad",
-    "name": "Egg salad (homemade or deli)",
-    "synonyms": [
-      "egg salad sandwich filling",
-      "egg mayo salad"
-    ],
-    "category": "deli",
-    "forms": [
-      "leftovers",
-      "opened"
-    ],
-    "storage": [
-      {
-        "env": "pantry",
-        "form": [
-          "opened",
-          "leftovers"
-        ],
-        "notRecommended": true,
-        "duration": {
-          "maxHours": 2
-        }
-      },
-      {
-        "env": "fridge",
-        "form": [
-          "opened",
-          "leftovers"
-        ],
-        "duration": {
-          "maxDays": 4
-        }
-      },
-      {
-        "env": "freezer",
-        "form": [
-          "opened",
-          "leftovers"
-        ],
-        "notRecommended": true
-      }
-    ]
+    "name": "Cooked Pasta",
+    "storage": {
+      "fridge": { "safe_days": 5, "note": "Safe for 3–5 days." },
+      "freezer": { "safe_days": 60, "note": "Freeze up to 2 months." },
+      "room": { "safe_hours": 2, "note": "Unsafe after 2 hours." }
+    }
   }
 ]
