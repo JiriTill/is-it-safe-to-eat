@@ -1,5 +1,6 @@
 "use client";
-import { useEffect, useState } from "react";
+
+import React, { useEffect, useState } from "react";
 
 function loadTimers() {
   try { return JSON.parse(localStorage.getItem("timers") || "[]"); } catch { return []; }
@@ -9,9 +10,9 @@ function saveTimers(timers) {
 }
 
 export default function TimerStart({ name, defaultDays }) {
-  const [dateStr, setDateStr] = React.useState("");
+  const [dateStr, setDateStr] = useState("");
 
-  React.useEffect(() => {
+  useEffect(() => {
     const today = new Date();
     setDateStr(today.toISOString().slice(0,10));
   }, []);
