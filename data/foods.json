@@ -1,0 +1,579 @@
+[
+  {
+    "id": "cooked-chicken",
+    "name": "Chicken, cooked",
+    "synonyms": [
+      "fried chicken",
+      "roast chicken",
+      "rotisserie chicken",
+      "grilled chicken",
+      "baked chicken",
+      "leftover chicken"
+    ],
+    "category": "poultry",
+    "forms": [
+      "cooked",
+      "leftovers"
+    ],
+    "storage": [
+      {
+        "env": "pantry",
+        "form": [
+          "cooked",
+          "leftovers"
+        ],
+        "notRecommended": true,
+        "duration": {
+          "maxHours": 2
+        }
+      },
+      {
+        "env": "fridge",
+        "form": [
+          "cooked",
+          "leftovers"
+        ],
+        "duration": {
+          "maxDays": 4
+        }
+      },
+      {
+        "env": "freezer",
+        "form": [
+          "cooked",
+          "leftovers"
+        ],
+        "duration": {
+          "maxMonths": 6
+        },
+        "note": "Best quality if used sooner."
+      }
+    ],
+    "reheatTargetF": 165,
+    "faq": [
+      {
+        "q": "Left out overnight\u2014safe?",
+        "a": "No. Discard. Perishables left out over 2 hours (1 hour if >90\u00b0F / 32\u00b0C) are unsafe."
+      },
+      {
+        "q": "What fridge temperature is safe?",
+        "a": "40\u00b0F / 4\u00b0C or below."
+      }
+    ]
+  },
+  {
+    "id": "raw-chicken",
+    "name": "Chicken, raw",
+    "synonyms": [
+      "raw chicken breast",
+      "raw chicken thighs",
+      "raw poultry"
+    ],
+    "category": "poultry",
+    "forms": [
+      "raw"
+    ],
+    "storage": [
+      {
+        "env": "pantry",
+        "form": [
+          "raw"
+        ],
+        "notRecommended": true,
+        "duration": {
+          "maxHours": 2
+        }
+      },
+      {
+        "env": "fridge",
+        "form": [
+          "raw"
+        ],
+        "duration": {
+          "maxDays": 2
+        }
+      },
+      {
+        "env": "freezer",
+        "form": [
+          "raw"
+        ],
+        "duration": {
+          "maxMonths": 12
+        },
+        "note": "Quality best within 9 months for parts."
+      }
+    ],
+    "internalCookTempsF": {
+      "whole": 165
+    },
+    "faq": [
+      {
+        "q": "Marinated raw chicken \u2014 same timeline?",
+        "a": "Yes. Marinating does not extend safety timeframes."
+      }
+    ]
+  },
+  {
+    "id": "cooked-rice",
+    "name": "Rice, cooked",
+    "synonyms": [
+      "leftover rice",
+      "white rice cooked",
+      "brown rice cooked",
+      "fried rice"
+    ],
+    "category": "grains",
+    "forms": [
+      "cooked",
+      "leftovers"
+    ],
+    "storage": [
+      {
+        "env": "pantry",
+        "form": [
+          "cooked",
+          "leftovers"
+        ],
+        "notRecommended": true,
+        "duration": {
+          "maxHours": 2
+        }
+      },
+      {
+        "env": "fridge",
+        "form": [
+          "cooked",
+          "leftovers"
+        ],
+        "duration": {
+          "maxDays": 4
+        }
+      },
+      {
+        "env": "freezer",
+        "form": [
+          "cooked",
+          "leftovers"
+        ],
+        "duration": {
+          "maxMonths": 6
+        }
+      }
+    ],
+    "reheatTargetF": 165,
+    "hazards": [
+      {
+        "name": "Bacillus cereus",
+        "summary": "Cool quickly in shallow containers, refrigerate promptly, and reheat thoroughly."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Can I leave rice in a rice cooker on warm?",
+        "a": "Use caution. Keep hot foods at 140\u00b0F / 60\u00b0C or above; otherwise refrigerate promptly."
+      }
+    ]
+  },
+  {
+    "id": "pizza-cooked",
+    "name": "Pizza, cooked (leftovers)",
+    "synonyms": [
+      "pizza",
+      "leftover pizza",
+      "takeout pizza"
+    ],
+    "category": "prepared",
+    "forms": [
+      "leftovers",
+      "cooked"
+    ],
+    "storage": [
+      {
+        "env": "pantry",
+        "form": [
+          "leftovers"
+        ],
+        "notRecommended": true,
+        "duration": {
+          "maxHours": 2
+        }
+      },
+      {
+        "env": "fridge",
+        "form": [
+          "leftovers"
+        ],
+        "duration": {
+          "maxDays": 4
+        }
+      },
+      {
+        "env": "freezer",
+        "form": [
+          "leftovers"
+        ],
+        "duration": {
+          "maxMonths": 2
+        }
+      }
+    ],
+    "reheatTargetF": 165,
+    "faq": [
+      {
+        "q": "Is cold pizza okay?",
+        "a": "Yes if kept refrigerated within 3\u20134 days; otherwise reheat to 165\u00b0F / 74\u00b0C."
+      }
+    ]
+  },
+  {
+    "id": "eggs-hard-boiled",
+    "name": "Eggs, hard-boiled (peeled or unpeeled)",
+    "synonyms": [
+      "boiled eggs",
+      "hard boiled eggs",
+      "cooked eggs"
+    ],
+    "category": "eggs",
+    "forms": [
+      "cooked",
+      "leftovers"
+    ],
+    "storage": [
+      {
+        "env": "pantry",
+        "form": [
+          "cooked"
+        ],
+        "notRecommended": true,
+        "duration": {
+          "maxHours": 2
+        }
+      },
+      {
+        "env": "fridge",
+        "form": [
+          "cooked"
+        ],
+        "duration": {
+          "maxDays": 7
+        }
+      },
+      {
+        "env": "freezer",
+        "form": [
+          "cooked"
+        ],
+        "notRecommended": true
+      }
+    ],
+    "reheatTargetF": 165,
+    "faq": [
+      {
+        "q": "Grey ring around yolk \u2014 safe?",
+        "a": "Yes, that\u2019s usually from overcooking; it\u2019s safe to eat."
+      }
+    ]
+  },
+  {
+    "id": "ground-beef-raw",
+    "name": "Beef, ground (raw)",
+    "synonyms": [
+      "ground beef",
+      "minced beef",
+      "raw mince"
+    ],
+    "category": "meat",
+    "forms": [
+      "raw"
+    ],
+    "storage": [
+      {
+        "env": "pantry",
+        "form": [
+          "raw"
+        ],
+        "notRecommended": true,
+        "duration": {
+          "maxHours": 2
+        }
+      },
+      {
+        "env": "fridge",
+        "form": [
+          "raw"
+        ],
+        "duration": {
+          "maxDays": 2
+        }
+      },
+      {
+        "env": "freezer",
+        "form": [
+          "raw"
+        ],
+        "duration": {
+          "maxMonths": 4
+        }
+      }
+    ],
+    "internalCookTempsF": {
+      "ground": 160
+    },
+    "faq": [
+      {
+        "q": "Beef turned brown \u2014 safe?",
+        "a": "Color isn\u2019t a perfect indicator. Use time/temperature guidance and smell/surface check."
+      }
+    ]
+  },
+  {
+    "id": "beef-cooked",
+    "name": "Beef, cooked (leftovers)",
+    "synonyms": [
+      "leftover beef",
+      "roast beef leftovers",
+      "beef stew"
+    ],
+    "category": "meat",
+    "forms": [
+      "cooked",
+      "leftovers"
+    ],
+    "storage": [
+      {
+        "env": "pantry",
+        "form": [
+          "leftovers"
+        ],
+        "notRecommended": true,
+        "duration": {
+          "maxHours": 2
+        }
+      },
+      {
+        "env": "fridge",
+        "form": [
+          "leftovers"
+        ],
+        "duration": {
+          "maxDays": 4
+        }
+      },
+      {
+        "env": "freezer",
+        "form": [
+          "leftovers"
+        ],
+        "duration": {
+          "maxMonths": 3
+        }
+      }
+    ],
+    "reheatTargetF": 165,
+    "faq": [
+      {
+        "q": "Beef stew safe time?",
+        "a": "Soups and stews follow the same 3\u20134 day fridge guidance; freeze for longer storage."
+      }
+    ]
+  },
+  {
+    "id": "fish-cooked",
+    "name": "Fish, cooked",
+    "synonyms": [
+      "cooked fish",
+      "leftover salmon",
+      "baked cod leftovers"
+    ],
+    "category": "seafood",
+    "forms": [
+      "cooked",
+      "leftovers"
+    ],
+    "storage": [
+      {
+        "env": "pantry",
+        "form": [
+          "leftovers"
+        ],
+        "notRecommended": true,
+        "duration": {
+          "maxHours": 2
+        }
+      },
+      {
+        "env": "fridge",
+        "form": [
+          "leftovers"
+        ],
+        "duration": {
+          "maxDays": 4
+        }
+      },
+      {
+        "env": "freezer",
+        "form": [
+          "leftovers"
+        ],
+        "duration": {
+          "maxMonths": 3
+        }
+      }
+    ],
+    "reheatTargetF": 165,
+    "faq": [
+      {
+        "q": "Fish smells strong \u2014 discard?",
+        "a": "If odor is sour or ammonia-like, discard."
+      }
+    ]
+  },
+  {
+    "id": "fish-raw",
+    "name": "Fish, raw (not sushi-grade)",
+    "synonyms": [
+      "raw fish fillet",
+      "uncooked fish"
+    ],
+    "category": "seafood",
+    "forms": [
+      "raw"
+    ],
+    "storage": [
+      {
+        "env": "pantry",
+        "form": [
+          "raw"
+        ],
+        "notRecommended": true,
+        "duration": {
+          "maxHours": 2
+        }
+      },
+      {
+        "env": "fridge",
+        "form": [
+          "raw"
+        ],
+        "duration": {
+          "maxDays": 2
+        }
+      },
+      {
+        "env": "freezer",
+        "form": [
+          "raw"
+        ],
+        "duration": {
+          "maxMonths": 8
+        }
+      }
+    ],
+    "internalCookTempsF": {
+      "seafood": 145
+    },
+    "faq": [
+      {
+        "q": "Safe to refreeze raw fish?",
+        "a": "If thawed in the refrigerator and kept cold, it can be refrozen, but quality may suffer."
+      }
+    ]
+  },
+  {
+    "id": "deli-meat-opened",
+    "name": "Deli meat, opened",
+    "synonyms": [
+      "sliced ham opened",
+      "turkey deli meat opened",
+      "cold cuts opened"
+    ],
+    "category": "deli",
+    "forms": [
+      "opened"
+    ],
+    "storage": [
+      {
+        "env": "pantry",
+        "form": [
+          "opened"
+        ],
+        "notRecommended": true,
+        "duration": {
+          "maxHours": 2
+        }
+      },
+      {
+        "env": "fridge",
+        "form": [
+          "opened"
+        ],
+        "duration": {
+          "maxDays": 5
+        }
+      },
+      {
+        "env": "freezer",
+        "form": [
+          "opened"
+        ],
+        "duration": {
+          "maxMonths": 2
+        }
+      }
+    ],
+    "faq": [
+      {
+        "q": "Slimy feel \u2014 safe?",
+        "a": "Discard if slimy or sour-smelling."
+      }
+    ]
+  },
+  {
+    "id": "sushi-takeout",
+    "name": "Sushi (takeout)",
+    "synonyms": [
+      "sushi leftovers",
+      "nigiri leftovers",
+      "maki leftovers"
+    ],
+    "category": "prepared",
+    "forms": [
+      "leftovers"
+    ],
+    "storage": [
+      {
+        "env": "pantry",
+        "form": [
+          "leftovers"
+        ],
+        "notRecommended": true,
+        "duration": {
+          "maxHours": 2
+        }
+      },
+      {
+        "env": "fridge",
+        "form": [
+          "leftovers"
+        ],
+        "duration": {
+          "maxDays": 1
+        }
+      },
+      {
+        "env": "freezer",
+        "form": [
+          "leftovers"
+        ],
+        "notRecommended": true
+      }
+    ],
+    "faq": [
+      {
+        "q": "Next-day sushi okay?",
+        "a": "Generally best within 24 hours if kept refrigerated; check smell/texture."
+      }
+    ]
+  }
+]
