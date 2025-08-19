@@ -1,13 +1,6 @@
+# Is it Safe to Eat?
 
-# Is it Safe to Eat? — JS Starter (No TypeScript)
-
-Instant, foolproof food safety timelines with a simple, SEO-friendly Next.js app (JS only).
-
-## Deploy steps (no local run needed)
-
-1. **Create a GitHub repo** (e.g., `is-it-safe-to-eat`).
-2. Upload all files from this folder to the repo.
-3. Go to **Vercel → Add New Project → Import from GitHub** → select your repo → **Deploy**.
+Instant food safety timelines with a simple, SEO-friendly Next.js app (JS only).
 
 ## What’s included
 
